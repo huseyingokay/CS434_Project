@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -26,17 +28,33 @@
                </font>
             </Label>
             <Label alignment="CENTER" layoutX="75.0" layoutY="117.0" prefHeight="50.0" prefWidth="79.0" text="Admin" textAlignment="CENTER" />
-            <Label alignment="CENTER" layoutX="421.0" layoutY="117.0" prefHeight="50.0" prefWidth="79.0" text="Student" textAlignment="CENTER" />
+            <Label alignment="CENTER" layoutX="432.0" layoutY="117.0" prefHeight="50.0" prefWidth="79.0" text="Student" textAlignment="CENTER" />
             <TextField fx:id="adminUserName" layoutX="115.0" layoutY="187.0" />
-            <Label layoutX="35.0" layoutY="174.0" prefHeight="50.0" prefWidth="79.0" text="Username:" textAlignment="CENTER" />
-            <Label layoutX="35.0" layoutY="223.0" prefHeight="50.0" prefWidth="79.0" text="Password:" textAlignment="CENTER" />
             <TextField fx:id="studentUserName" layoutX="425.0" layoutY="187.0" />
-            <Label layoutX="347.0" layoutY="175.0" prefHeight="50.0" prefWidth="79.0" text="Username:" textAlignment="CENTER" />
-            <Label layoutX="347.0" layoutY="223.0" prefHeight="50.0" prefWidth="79.0" text="Password:" textAlignment="CENTER" />
             <Button fx:id="adminLogin" layoutX="115.0" layoutY="281.0" mnemonicParsing="false" onAction="#loginAdmin" text="Login" />
             <Button fx:id="studentLogin" layoutX="426.0" layoutY="281.0" mnemonicParsing="false" onAction="#loginStudent" text="Login" />
             <PasswordField fx:id="adminPassword" layoutX="115.0" layoutY="235.0" />
             <PasswordField fx:id="studentPassword" layoutX="425.0" layoutY="235.0" />
+            <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="63.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@key.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="63.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="372.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@key.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="374.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
