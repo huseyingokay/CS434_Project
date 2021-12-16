@@ -20,7 +20,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="403.0" prefWidth="602.0">
+      <AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="403.0" prefWidth="602.0">
          <children>
             <Label layoutX="260.0" layoutY="34.0" prefHeight="50.0" prefWidth="79.0" text="Exam Portal" textAlignment="CENTER">
                <font>

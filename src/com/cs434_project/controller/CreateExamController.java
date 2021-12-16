@@ -40,30 +40,49 @@ public class CreateExamController {
 
     private VBox vbox = new VBox();
 
+    private int index = 1;
+
     @FXML
     void addQuestion(ActionEvent event) throws IOException {
-        int index = 1;
         examArea.setPannable(true);
         int questionId = questionTypesCombo.getSelectionModel().getSelectedIndex();
-        System.out.println(questionId);
+
         switch (questionId){
             case 0:
-                Pane root = FXMLLoader.load(getClass().getResource("../layout/MultiChoiceQuestion.fxml"));
-                root.setId("pane" + index);
+                FXMLLoader root = new FXMLLoader(getClass().getResource("../layout/MultiChoiceQuestion.fxml"));
+                Pane pane = root.load();
 
-                vbox.getChildren().add(root);
+                pane.setId("pane" + index);
+
+                MultiChoiceQuestionController controller = root.getController();
+                controller.setTextToLabel("Question " + index);
+                vbox.getChildren().add(pane);
                 examArea.setContent(vbox);
                 index++;
                 break;
             case 1:
-                Pane root2 = FXMLLoader.load(getClass().getResource("../layout/MultiChoiceQuestion.fxml"));
-                root2.setId("pane" + index);
+                FXMLLoader root2 = new FXMLLoader(getClass().getResource("../layout/TrueFalseQuestion.fxml"));
+                Pane pane2 = root2.load();
 
-                vbox.getChildren().add(root2);
+                pane2.setId("pane" + index);
+
+                TrueFalseQuestionController controller2 = root2.getController();
+                controller2.setTextToLabel("Question " + index);
+                vbox.getChildren().add(pane2);
                 examArea.setContent(vbox);
                 index++;
                 break;
             case 2:
+                FXMLLoader root3 = new FXMLLoader(getClass().getResource("../layout/WrittenQuestion.fxml"));
+                Pane pane3 = root3.load();
+
+                pane3.setId("pane" + index);
+
+                WrittenQuestionController controller3 = root3.getController();
+                controller3.setTextToLabel("Question " + index);
+                vbox.getChildren().add(pane3);
+                examArea.setContent(vbox);
+                index++;
                 break;
             default:
                 //nullquestion
