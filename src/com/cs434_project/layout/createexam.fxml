@@ -20,29 +20,26 @@
                   <ComboBox fx:id="questionTypesCombo" layoutX="22.0" layoutY="101.0" prefWidth="150.0" promptText="Question Types">
                        <items>
                            <FXCollections fx:factory="observableArrayList">
-                               <String fx:value="Multi Choice Question"/>
-                               <String fx:value="True False Question"/>
-                               <String fx:value="Written Question"/>
+                               <String fx:value="Multi Choice Question" />
+                               <String fx:value="True False Question" />
+                               <String fx:value="Written Question" />
                            </FXCollections>
                        </items>
                    </ComboBox>
-                  <Button fx:id="addQuestionButton" layoutX="53.0" layoutY="136.0" mnemonicParsing="false" onAction="#addQuestion" text="Add Question" />
+                  <Button fx:id="addQuestionButton" layoutX="52.0" layoutY="143.0" mnemonicParsing="false" onAction="#addQuestion" text="Add Question" />
                   <Button fx:id="changeExamNameButton" layoutX="143.0" layoutY="29.0" mnemonicParsing="false" onAction="#onChangeExamName" text="OK" />
+                  <Button fx:id="saveExamButton" layoutX="51.0" layoutY="186.0" mnemonicParsing="false" onAction="#saveExam" prefHeight="26.0" prefWidth="90.0" text="Save Exam" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="395.0">
-               <children>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="398.0" prefWidth="412.0" vbarPolicy="ALWAYS">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="411.0">
-                           <children>
-                              <Label fx:id="examNameLabel" layoutX="176.0" layoutY="25.0" prefHeight="26.0" prefWidth="60.0" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-               </children>
-            </AnchorPane>
+            <ScrollPane fx:id="examArea" hbarPolicy="NEVER" prefHeight="398.0" prefWidth="412.0" vbarPolicy="ALWAYS">
+               <content>
+                  <AnchorPane prefHeight="398.0" prefWidth="399.0">
+                     <children>
+                        <Label fx:id="examNameLabel" layoutX="186.0" layoutY="30.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
         </items>
       </SplitPane>
    </children>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cs434_project.controller.CreateExamController">
+   <children>
+      <TextField fx:id="questionField" layoutX="93.0" layoutY="68.0" prefHeight="59.0" prefWidth="413.0" promptText="Enter the question: " />
+      <RadioButton fx:id="choiceA" layoutX="93.0" layoutY="166.0" mnemonicParsing="false" />
+      <TextField fx:id="choiceAAnswer" layoutX="135.0" layoutY="163.0" />
+      <RadioButton fx:id="choiceB" layoutX="93.0" layoutY="206.0" mnemonicParsing="false" />
+      <TextField fx:id="choiceBAnswer" layoutX="135.0" layoutY="203.0" />
+      <RadioButton fx:id="choiceC" layoutX="93.0" layoutY="246.0" mnemonicParsing="false" />
+      <TextField fx:id="choiceCAnswer" layoutX="135.0" layoutY="243.0" />
+      <RadioButton fx:id="choiceD" layoutX="93.0" layoutY="285.0" mnemonicParsing="false" />
+      <TextField fx:id="choiceDAnswer" layoutX="135.0" layoutY="282.0" />
+   </children>
+</AnchorPane>
