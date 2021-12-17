@@ -39,7 +39,6 @@ public class StudentController {
     void startExam(MouseEvent event) throws IOException {
         int selectedExamId = examList.getSelectionModel().getSelectedIndex();
         if (event.getClickCount() == 2) {
-            System.out.println("hey" + selectedExamId);
             Parent root = FXMLLoader.load(getClass().getResource("../layout/ExamPopup.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -50,15 +49,15 @@ public class StudentController {
 
     @FXML
     void clickedNo(ActionEvent event) {
-        Stage stage = (Stage) yesButton.getScene().getWindow();
+        Stage stage = (Stage) noButton.getScene().getWindow();
         stage.hide();
     }
 
     @FXML
     void clickedYes(ActionEvent event) throws IOException {
-        Stage stage = (Stage) noButton.getScene().getWindow();
+        Stage stage = (Stage) yesButton.getScene().getWindow();
         stage.hide();
-        Stage mainStage = (Stage) studentAnchorPane.getScene().getWindow();
+        Stage mainStage = new Stage();
         mainStage.show();
 
         Parent root = FXMLLoader.load(getClass().getResource("../layout/Exam.fxml"));

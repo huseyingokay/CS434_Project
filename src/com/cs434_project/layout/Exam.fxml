@@ -5,12 +5,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cs434_project.controller.ExamController">
+<AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cs434_project.controller.ExamController">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" vbarPolicy="ALWAYS">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="399.0" prefWidth="590.0">
+          <AnchorPane prefHeight="400.0" prefWidth="600.0">
                <children>
                   <Label layoutX="261.0" layoutY="158.0" prefHeight="18.0" prefWidth="67.0" text="EXAM PAGE" />
                   <Button layoutX="249.0" layoutY="342.0" mnemonicParsing="false" text="SUBMIT EXAM" />
