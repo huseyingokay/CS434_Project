@@ -41,13 +41,13 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
         lecturerRepository.save((Lecturer)lecturer1);
 
         User grad1 = new GradStudent();
-        grad1.setUserName("a");
-        grad1.setPassword("123");
+        grad1.setUserName("abb");
+        grad1.setPassword("1234");
         gradRepository.save((GradStudent) grad1);
 
         User undergrad1 = new UnderGradStudent();
-        undergrad1.setUserName("b");
-        undergrad1.setPassword("123");
+        undergrad1.setUserName("bcc");
+        undergrad1.setPassword("1235");
         underGradRepository.save((UnderGradStudent) undergrad1);
     }
 
