@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css" >
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+</head>
+<body>
+<div>
+    <div class="mainDiv">
+        <h3>Login Here</h3>
+        <label for="userType">User Type:</label>
+        <input list="userTypes" name="userType" id="userType">
+        <datalist id="userTypes">
+            <option value="Lecturer">
+            <option value="UnderGrad">
+            <option value="Grad">
+        </datalist>
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+        <button onclick="checkUser()">Log In</button>
+    </div>
+
+</div>
+<script src="login.js"></script>
+</body>
+</html>
