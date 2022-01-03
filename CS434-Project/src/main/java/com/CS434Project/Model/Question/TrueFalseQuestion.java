@@ -10,9 +10,6 @@ public class TrueFalseQuestion extends Question{
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
-    @Column(name="ANSWER")
-    private String answer;
-
     @Override
     public int getId() {
         return id;
@@ -23,11 +20,4 @@ public class TrueFalseQuestion extends Question{
         this.id = id;
     }
 
-    public String isAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }

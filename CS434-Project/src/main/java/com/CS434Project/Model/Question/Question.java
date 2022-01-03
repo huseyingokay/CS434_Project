@@ -18,6 +18,9 @@ public class Question {
     @Column(name="EXPLANATION")
     private String questionExplanation;
 
+    @Column(name="ANSWERINDEX")
+    private String answer;
+
     private double questionPoint;
 
     @ManyToOne
@@ -58,6 +61,14 @@ public class Question {
 
     public String getQuestionType() {
         return questionType;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     @Override

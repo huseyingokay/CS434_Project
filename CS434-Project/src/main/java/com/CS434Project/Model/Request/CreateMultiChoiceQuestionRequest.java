@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreateMultiChoiceQuestionRequest {
-    private int answerIndex;
+    private String answer;
     private String questionExplanation;
     private double questionPoint;
     private QuestionType questionType;
     private int examId;
     private List<String> choices = new ArrayList<>();
 
-    public int getAnswer() {
-        return answerIndex;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setAnswer(int answer) {
-        this.answerIndex = answerIndex;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public String getQuestionExplanation() {
@@ -55,13 +55,6 @@ public class CreateMultiChoiceQuestionRequest {
         this.examId = examId;
     }
 
-    public int getAnswerIndex() {
-        return answerIndex;
-    }
-
-    public void setAnswerIndex(int answerIndex) {
-        this.answerIndex = answerIndex;
-    }
 
     public List<String> getChoices() {
         return choices;

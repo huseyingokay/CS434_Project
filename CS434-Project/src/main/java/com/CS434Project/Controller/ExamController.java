@@ -22,4 +22,9 @@ public class ExamController {
     public GetExamResponse getExam(@PathVariable("exam-id") int examId) {
         return examService.getExam(examId);
     }
+
+    @GetMapping("{exam-id}/results/{student-id}")
+    public double getExamResult(@PathVariable("exam-id") int examId, @PathVariable("student-id") int studentId){
+        return examService.getExamResult(examId, studentId);
+    }
 }

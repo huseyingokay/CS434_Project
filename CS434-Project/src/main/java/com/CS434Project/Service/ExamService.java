@@ -1,19 +1,27 @@
 package com.CS434Project.Service;
 
+import com.CS434Project.Model.Answer.Answer;
 import com.CS434Project.Model.Dto.ExamDTO;
 import com.CS434Project.Model.Dto.NullExamDTO;
 import com.CS434Project.Model.Dto.QuestionDTO;
 import com.CS434Project.Model.Exam.Exam;
+import com.CS434Project.Model.Question.Question;
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
+import com.CS434Project.Repository.AnswerRepository;
 import com.CS434Project.Repository.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ExamService {
     @Autowired
     ExamRepository examRepository;
+
+    @Autowired
+    AnswerRepository answerRepository;
 
     public CreateExamResponse createExam(){
         Exam exam = new Exam();
@@ -44,5 +52,23 @@ public class ExamService {
             response.setExamDTO(examDTO);
         }
         return response;
+    }
+
+    public double getExamResult(int examId, int studentId) {
+        Exam requestedExam = examRepository.findById(examId).get();
+        List<Answer> answers = answerRepository.findByStudentIdAndExamId(studentId,examId);
+        double totalScore = 0.0;
+
+        for(int i=0; i<requestedExam.getQuestions().size(); i++){
+            Question currentQuestion = requestedExam.getQuestions().get(i);
+            Answer studentAnswer = answers.stream().filter(answer ->
+                answer.getQuestionId() == currentQuestion.getId()
+            ).findAny().get();
+
+            if(currentQuestion.getAnswer().equals(studentAnswer.getAnswer())){
+                totalScore += requestedExam.getQuestions().get(i).getQuestionPoint();
+            }
+        }
+        return totalScore;
     }
 }

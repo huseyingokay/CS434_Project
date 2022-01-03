@@ -22,12 +22,4 @@ public class WrittenQuestion extends Question{
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }

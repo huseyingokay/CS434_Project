@@ -31,28 +31,26 @@ public class QuestionService {
     public void createMultiChoiceQuestion(CreateMultiChoiceQuestionRequest request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
         MultiChoiceQuestion question = (MultiChoiceQuestion) questionFactory.getQuestion(questionType);
-        question.setAnswerIndex(request.getAnswer());
         question.setChoices(request.getChoices());
-        setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
+        setQuestionCommonAttributes(question, exam.get(), request.getAnswer(), request.getQuestionExplanation(), request.getQuestionPoint());
         multiChoiceQuestionQuestionRepository.save(question);
     }
 
     public void createTrueFalseQuestion(CreateTrueFalseQuestion request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
         TrueFalseQuestion question = (TrueFalseQuestion) questionFactory.getQuestion(questionType);
-        question.setAnswer(request.getAnswer());
-        setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
+        setQuestionCommonAttributes(question, exam.get(), request.getAnswer(), request.getQuestionExplanation(), request.getQuestionPoint());
         trueFalseQuestionQuestionRepository.save(question);
     }
     public void createWrittenQuestion(CreateWrittenQuestion request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
         WrittenQuestion question = (WrittenQuestion) questionFactory.getQuestion(questionType);
-        question.setAnswer(request.getAnswer());
-        setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
+        setQuestionCommonAttributes(question, exam.get(), request.getAnswer(), request.getQuestionExplanation(), request.getQuestionPoint());
         writtenQuestionQuestionRepository.save(question);
     }
 
-    private void setQuestionCommonAttributes(Question question, Exam exam, String questionExplanation, double questionPoint){
+    private void setQuestionCommonAttributes(Question question, Exam exam, String answer, String questionExplanation, double questionPoint){
+        question.setAnswer(answer);
         question.setExam(exam);
         question.setQuestionExplanation(questionExplanation);
         question.setQuestionPoint(questionPoint);

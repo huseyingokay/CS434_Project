@@ -13,9 +13,6 @@ public class MultiChoiceQuestion extends Question{
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
-    @Column(name="ANSWERINDEX")
-    private int answerIndex;
-
     @ElementCollection
     private List<String> choices = new ArrayList<>();
 
@@ -27,14 +24,6 @@ public class MultiChoiceQuestion extends Question{
     @Override
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getAnswerIndex() {
-        return answerIndex;
-    }
-
-    public void setAnswerIndex(int answerIndex) {
-        this.answerIndex = answerIndex;
     }
 
     public List<String> getChoices() {
