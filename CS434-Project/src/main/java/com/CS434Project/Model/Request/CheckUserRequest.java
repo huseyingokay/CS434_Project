@@ -1,6 +1,6 @@
 package com.CS434Project.Model.Request;
 
-public class checkUserRequest {
+public class CheckUserRequest {
     private String username;
     private String password;
 

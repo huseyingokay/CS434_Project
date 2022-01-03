@@ -32,6 +32,7 @@ public class QuestionService {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
         MultiChoiceQuestion question = (MultiChoiceQuestion) questionFactory.getQuestion(questionType);
         question.setAnswerIndex(request.getAnswer());
+        question.setChoices(request.getChoices());
         setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
         multiChoiceQuestionQuestionRepository.save(question);
     }

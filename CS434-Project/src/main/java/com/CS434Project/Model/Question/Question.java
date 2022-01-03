@@ -12,6 +12,9 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
+    @Column(name = "QUESTION_TYPE", insertable = false, updatable = false)
+    private String questionType;
+
     @Column(name="EXPLANATION")
     private String questionExplanation;
 
@@ -51,6 +54,10 @@ public class Question {
 
     public void setExam(Exam exam) {
         this.exam = exam;
+    }
+
+    public String getQuestionType() {
+        return questionType;
     }
 
     @Override

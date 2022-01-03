@@ -1,9 +1,8 @@
 package com.CS434Project.Service;
 
 import com.CS434Project.Model.Lecturer.Lecturer;
-import com.CS434Project.Model.Request.UserType;
-import com.CS434Project.Model.Request.checkUserRequest;
-import com.CS434Project.Model.Response.checkUserResponse;
+import com.CS434Project.Model.Request.CheckUserRequest;
+import com.CS434Project.Model.Response.CheckUserResponse;
 import com.CS434Project.Model.Student.GradStudent;
 import com.CS434Project.Model.Student.UnderGradStudent;
 import com.CS434Project.Model.User;
@@ -24,8 +23,8 @@ public class LoginService {
     @Autowired
     GradRepository gradRepository;
 
-    public checkUserResponse checkLecturer(checkUserRequest request){
-        checkUserResponse response = new checkUserResponse();
+    public CheckUserResponse checkLecturer(CheckUserRequest request){
+        CheckUserResponse response = new CheckUserResponse();
         try{
 
             User user = (Lecturer)lecturerRepository.findByUsername(request.getUsername());
@@ -39,8 +38,8 @@ public class LoginService {
         }
     }
 
-    public checkUserResponse checkGradStudent(checkUserRequest request) {
-        checkUserResponse response = new checkUserResponse();
+    public CheckUserResponse checkGradStudent(CheckUserRequest request) {
+        CheckUserResponse response = new CheckUserResponse();
         try{
             User user = (GradStudent)gradRepository.findByUsername(request.getUsername());
             response.setValid(userValidate(user, request));
@@ -52,8 +51,8 @@ public class LoginService {
         }
     }
 
-    public checkUserResponse checkUnderGradStudent(checkUserRequest request) {
-        checkUserResponse response = new checkUserResponse();
+    public CheckUserResponse checkUnderGradStudent(CheckUserRequest request) {
+        CheckUserResponse response = new CheckUserResponse();
         try{
             User user = (UnderGradStudent)underGradRepository.findByUsername(request.getUsername());
             response.setValid(userValidate(user, request));
@@ -65,7 +64,7 @@ public class LoginService {
         }
     }
 
-    private boolean userValidate(User user, checkUserRequest request){
+    private boolean userValidate(User user, CheckUserRequest request){
         if(!(user == null) && user.getPassword().equals(request.getPassword())){
             return true;
         }

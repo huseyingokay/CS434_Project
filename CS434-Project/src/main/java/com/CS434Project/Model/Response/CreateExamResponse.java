@@ -1,6 +1,6 @@
 package com.CS434Project.Model.Response;
 
-public class createExamResponse {
+public class CreateExamResponse {
     private int examId;
 
     public int getExamId() {

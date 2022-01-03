@@ -1,6 +1,6 @@
 package com.CS434Project.Model.Response;
 
-public class checkUserResponse {
+public class CheckUserResponse {
     private boolean isValid;
     private String message;
 

@@ -4,6 +4,8 @@ import com.CS434Project.Model.Exam.Exam;
 import com.CS434Project.Model.Question.QuestionType;
 
 import javax.persistence.ManyToOne;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateMultiChoiceQuestionRequest {
     private int answerIndex;
@@ -11,6 +13,7 @@ public class CreateMultiChoiceQuestionRequest {
     private double questionPoint;
     private QuestionType questionType;
     private int examId;
+    private List<String> choices = new ArrayList<>();
 
     public int getAnswer() {
         return answerIndex;
@@ -50,5 +53,21 @@ public class CreateMultiChoiceQuestionRequest {
 
     public void setExamId(int examId) {
         this.examId = examId;
+    }
+
+    public int getAnswerIndex() {
+        return answerIndex;
+    }
+
+    public void setAnswerIndex(int answerIndex) {
+        this.answerIndex = answerIndex;
+    }
+
+    public List<String> getChoices() {
+        return choices;
+    }
+
+    public void setChoices(List<String> choices) {
+        this.choices = choices;
     }
 }
