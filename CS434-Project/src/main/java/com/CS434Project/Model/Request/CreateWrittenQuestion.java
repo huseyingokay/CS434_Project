@@ -1,12 +1,10 @@
 package com.CS434Project.Model.Request;
 
-import com.CS434Project.Model.Question.QuestionType;
 
 public class CreateWrittenQuestion {
     private String answer;
     private String questionExplanation;
     private double questionPoint;
-    private QuestionType questionType;
     private int examId;
 
     public String getAnswer() {
@@ -31,14 +29,6 @@ public class CreateWrittenQuestion {
 
     public void setQuestionPoint(double questionPoint) {
         this.questionPoint = questionPoint;
-    }
-
-    public QuestionType getQuestionType() {
-        return questionType;
-    }
-
-    public void setQuestionType(QuestionType questionType) {
-        this.questionType = questionType;
     }
 
     public int getExamId() {

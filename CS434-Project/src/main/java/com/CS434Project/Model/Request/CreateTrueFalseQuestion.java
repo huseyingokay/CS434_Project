@@ -3,17 +3,17 @@ package com.CS434Project.Model.Request;
 import com.CS434Project.Model.Question.QuestionType;
 
 public class CreateTrueFalseQuestion {
-    private boolean answer;
+    private String answer;
     private String questionExplanation;
     private double questionPoint;
     private QuestionType questionType;
     private int examId;
 
-    public boolean getAnswer() {
+    public String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(boolean answer) {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 

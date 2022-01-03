@@ -3,8 +3,9 @@ package com.CS434Project.Model.Question;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "T_MULTICHOICEQUESTION")
+@DiscriminatorValue("MULTICHOICE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public class MultiChoiceQuestion extends Question{
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)

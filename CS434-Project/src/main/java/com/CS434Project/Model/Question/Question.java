@@ -6,7 +6,8 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Question {
+@DiscriminatorColumn(name = "QUESTION_TYPE", discriminatorType = DiscriminatorType.STRING)
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
@@ -16,11 +17,10 @@ public abstract class Question {
 
     private double questionPoint;
 
-    private QuestionType questionType;
-
     @ManyToOne
     private Exam exam;
 
+    //region Getters&Setters
     public int getId() {
         return id;
     }
@@ -45,14 +45,6 @@ public abstract class Question {
         this.questionPoint = questionPoint;
     }
 
-    public QuestionType getQuestionType() {
-        return questionType;
-    }
-
-    public void setQuestionType(QuestionType questionType) {
-        this.questionType = questionType;
-    }
-
     public Exam getExam() {
         return exam;
     }
@@ -67,8 +59,8 @@ public abstract class Question {
                 "id=" + id +
                 ", questionExplanation='" + questionExplanation + '\'' +
                 ", questionPoint=" + questionPoint +
-                ", questionType=" + questionType +
                 ", exam=" + exam +
                 '}';
     }
+    //endregion
 }
