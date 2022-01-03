@@ -11,6 +11,9 @@ public class ExamService {
     @Autowired
     ExamRepository examRepository;
 
+    @Autowired
+
+
     public createExamResponse createExam(){
         Exam exam = new Exam();
         examRepository.save(exam);
@@ -18,5 +21,9 @@ public class ExamService {
         createExamResponse response = new createExamResponse();
         response.setExamId(exam.getId());
         return response;
+    }
+
+    public Exam getExam(int examId) {
+        return new Exam();
     }
 }

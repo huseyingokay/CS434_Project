@@ -1,5 +1,4 @@
 package com.CS434Project.Model.Student;
-
 import com.CS434Project.Model.User;
 
 import javax.persistence.*;
@@ -7,6 +6,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_GRADSTUDENT")
 public class GradStudent implements User {
+    private static GradStudent INSTANCE = null;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -17,6 +18,18 @@ public class GradStudent implements User {
     @Column(name="PASSWORD", length = 100)
     private String password;
 
+    public static GradStudent getInstance() {
+        if (INSTANCE == null){
+            synchronized (GradStudent.class){
+                if (INSTANCE == null){
+                    INSTANCE = new GradStudent();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    //region Getters&Setters
     public int getId() {
         return id;
     }
@@ -41,4 +54,5 @@ public class GradStudent implements User {
     public void setPassword(String password) {
         this.password = password;
     }
+    //endregion
 }

@@ -1,6 +1,5 @@
 function checkUser(){
    if(document.getElementById("userType").value == "Lecturer") {
-       console.log("HWEEEEEEEEEEEY")
        checkLecturer()
    }
    else if(document.getElementById("userType").value == "UnderGrad"){
@@ -29,7 +28,6 @@ async function checkLecturer() {
 
     await axios.post('http://localhost:9000/login/lecturer', checkUserRequest,
     ).then(res => {
-        console.log(res);
         if(res.data.valid)
             window.location.href = "../lecturer/lecturer.html";
     }).catch(err => console.log(err))

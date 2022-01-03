@@ -1,7 +1,5 @@
 package com.CS434Project.Controller;
 
-import com.CS434Project.Model.Question.MultiChoiceQuestion;
-import com.CS434Project.Model.Question.Question;
 import com.CS434Project.Model.Request.CreateMultiChoiceQuestionRequest;
 import com.CS434Project.Model.Request.CreateTrueFalseQuestion;
 import com.CS434Project.Model.Request.CreateWrittenQuestion;
@@ -29,5 +27,10 @@ public class QuestionController {
     @PostMapping("/written")
     public void createWrittenQuestion(@RequestBody CreateWrittenQuestion question){
         questionService.createWrittenQuestion(question);
+    }
+
+    @GetMapping("{exam-id}")
+    public void getQuestionNamesAndGrades(@PathVariable("exam-id") int examId){
+
     }
 }

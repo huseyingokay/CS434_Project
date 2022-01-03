@@ -15,11 +15,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ApplicationStartup implements ApplicationListener<ApplicationReadyEvent> {
 
-    /**
-     * This event is executed as late as conceivably possible to indicate that
-     * the application is ready to service requests.
-     */
-
     @Autowired
     private LecturerRepository lecturerRepository;
 
@@ -35,20 +30,23 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
     }
 
     private void seedData() {
-        User lecturer1 = new Lecturer();
+        User lecturer1 = Lecturer.getInstance();
         lecturer1.setUserName("amet");
         lecturer1.setPassword("123");
-        lecturerRepository.save((Lecturer)lecturer1);
+        if(lecturerRepository.findByUsername(lecturer1.getUserName()) == null)
+            lecturerRepository.save((Lecturer)lecturer1);
 
-        User grad1 = new GradStudent();
+        User grad1 = GradStudent.getInstance();
         grad1.setUserName("abb");
         grad1.setPassword("1234");
-        gradRepository.save((GradStudent) grad1);
+        if(gradRepository.findByUsername(grad1.getUserName()) == null)
+            gradRepository.save((GradStudent) grad1);
 
-        User undergrad1 = new UnderGradStudent();
+        User undergrad1 = UnderGradStudent.getInstance();
         undergrad1.setUserName("bcc");
         undergrad1.setPassword("1235");
-        underGradRepository.save((UnderGradStudent) undergrad1);
+        if(underGradRepository.findByUsername(undergrad1.getUserName()) == null)
+            underGradRepository.save((UnderGradStudent) undergrad1);
     }
 
 }

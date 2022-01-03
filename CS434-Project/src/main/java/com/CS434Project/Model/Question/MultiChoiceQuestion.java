@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "T_MULTICHOICEQUESTION")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class MultiChoiceQuestion extends Question{
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
