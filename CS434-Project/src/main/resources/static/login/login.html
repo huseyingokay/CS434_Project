@@ -1,53 +1,29 @@
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Font online-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-    <!--        Animate.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login.css" >
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <!-- Google JQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <script src="login.js"></script>
-
 </head>
 <body>
 <div>
-    <div class="panel shadow1" >
-        <form class="login-form" novalidate>
-            <div class="panel-switch animated fadeIn">
-                <button type="button" id="admin_login" class="active-button">Instructor</button>
-                <button type="button" id="student_login" class="" disabled>Student</button>
-            </div>
-            <h1 class="animated fadeInUp animate1" id="title-student_login">Welcome Student !</h1>
-            <h1 class="animated fadeInUp animate1 hidden" id="title-admin_login">Welcome Instructor !</h1>
-            <fieldset id="student_login-fieldset">
-                <label for="studentType">Choose your level</label>
-                <select name="types" id="studentType">
-                    <option value="undergrad">Undergrad</option>
-                    <option value="grad">Grad</option>
-                </select>
-                <input class="login animated fadeInUp animate2" id="studentUsername" name="username" type="textbox"  required   placeholder="Username" value="" >
-                <input class="login animated fadeInUp animate3" id="studentPassword" name="studentPassword" type="password" required placeholder="Password" value="">
-            </fieldset>
-            <fieldset id="admin_login-fieldset" class="hidden">
-                <input class="login animated fadeInUp animate2" id="lecturerUsername" name="username" type="textbox"  required   placeholder="Username" value="" >
-                <input class="login animated fadeInUp animate3" id="lecturerPassword" name="lecturerPassword" type="password" placeholder="Choose password"  required  value="">
-            </fieldset>
-            <input type="button" onclick="checkStudent()"  id="student_login-form-submit" class="login_form button animated fadeInUp animate4" value="Log in">
-            <input type="button" onclick="checkLecturer()" id="admin_login-form-submit" class="login_form button animated fadeInUp animate4 hidden" value="Log in">
-        </form>
+    <div class="mainDiv">
+        <h3>Login Here</h3>
+        <label for="userType">User Type:</label>
+        <input list="userTypes" name="userType" id="userType">
+        <datalist id="userTypes">
+            <option value="Lecturer">
+            <option value="UnderGrad">
+            <option value="Grad">
+        </datalist>
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+        <button onclick="checkUser()">Log In</button>
     </div>
+
 </div>
 <script src="login.js"></script>
 </body>
