@@ -1,17 +1,12 @@
 package com.CS434Project.Service;
 
 import com.CS434Project.Model.Exam.Exam;
-import com.CS434Project.Model.Question.MultiChoiceQuestion;
-import com.CS434Project.Model.Question.QuestionFactory;
-import com.CS434Project.Model.Question.TrueFalseQuestion;
-import com.CS434Project.Model.Question.WrittenQuestion;
+import com.CS434Project.Model.Question.*;
 import com.CS434Project.Model.Request.CreateMultiChoiceQuestionRequest;
 import com.CS434Project.Model.Request.CreateTrueFalseQuestion;
 import com.CS434Project.Model.Request.CreateWrittenQuestion;
 import com.CS434Project.Repository.ExamRepository;
-import com.CS434Project.Repository.MultiChoiceQuestionRepository;
-import com.CS434Project.Repository.TrueFalseQuestionRepository;
-import com.CS434Project.Repository.WrittenQuestionRepository;
+import com.CS434Project.Repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,55 +15,49 @@ import java.util.Optional;
 @Service
 public class QuestionService {
     @Autowired
-    MultiChoiceQuestionRepository multiChoiceQuestionRepository;
+    QuestionRepository<WrittenQuestion> writtenQuestionQuestionRepository;
 
     @Autowired
-    TrueFalseQuestionRepository trueFalseQuestionRepository;
+    QuestionRepository<MultiChoiceQuestion> multiChoiceQuestionQuestionRepository;
 
     @Autowired
-    WrittenQuestionRepository writtenQuestionRepository;
+    QuestionRepository<TrueFalseQuestion> trueFalseQuestionQuestionRepository;
 
     @Autowired
     ExamRepository examRepository;
 
     QuestionFactory questionFactory = new QuestionFactory();
 
-    public void createMultiChoiceQuestion(CreateMultiChoiceQuestionRequest request) {
+    public void createMultiChoiceQuestion(CreateMultiChoiceQuestionRequest request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
-        MultiChoiceQuestion question = (MultiChoiceQuestion) questionFactory.getQuestion(request.getQuestionType());
-        question.setExam(exam.get());
-        question.setQuestionType(request.getQuestionType());
-        question.setQuestionExplanation(request.getQuestionExplanation());
-        question.setQuestionPoint(request.getQuestionPoint());
+        MultiChoiceQuestion question = (MultiChoiceQuestion) questionFactory.getQuestion(questionType);
         question.setAnswerIndex(request.getAnswer());
-        exam.get().addQuestion(question);
-        multiChoiceQuestionRepository.save(question);
-        examRepository.save(exam.get());
+        question.setChoices(request.getChoices());
+        setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
+        multiChoiceQuestionQuestionRepository.save(question);
     }
 
-    public void createTrueFalseQuestion(CreateTrueFalseQuestion request) {
+    public void createTrueFalseQuestion(CreateTrueFalseQuestion request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
-        TrueFalseQuestion question = (TrueFalseQuestion) questionFactory.getQuestion(request.getQuestionType());
-        question.setExam(exam.get());
-        question.setQuestionType(request.getQuestionType());
-        question.setQuestionExplanation(request.getQuestionExplanation());
-        question.setQuestionPoint(request.getQuestionPoint());
+        TrueFalseQuestion question = (TrueFalseQuestion) questionFactory.getQuestion(questionType);
         question.setAnswer(request.getAnswer());
-        exam.get().addQuestion(question);
-        trueFalseQuestionRepository.save(question);
-        examRepository.save(exam.get());
+        setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
+        trueFalseQuestionQuestionRepository.save(question);
     }
-    public void createWrittenQuestion(CreateWrittenQuestion request) {
+    public void createWrittenQuestion(CreateWrittenQuestion request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
-        WrittenQuestion question = (WrittenQuestion) questionFactory.getQuestion(request.getQuestionType());
-        question.setExam(exam.get());
-        question.setQuestionType(request.getQuestionType());
-        question.setQuestionExplanation(request.getQuestionExplanation());
-        question.setQuestionPoint(request.getQuestionPoint());
+        WrittenQuestion question = (WrittenQuestion) questionFactory.getQuestion(questionType);
         question.setAnswer(request.getAnswer());
-        exam.get().addQuestion(question);
-        writtenQuestionRepository.save(question);
-        examRepository.save(exam.get());
+        setQuestionCommonAttributes(question, exam.get(), request.getQuestionExplanation(), request.getQuestionPoint());
+        writtenQuestionQuestionRepository.save(question);
+    }
+
+    private void setQuestionCommonAttributes(Question question, Exam exam, String questionExplanation, double questionPoint){
+        question.setExam(exam);
+        question.setQuestionExplanation(questionExplanation);
+        question.setQuestionPoint(questionPoint);
+        exam.addQuestion(question);
+        examRepository.save(exam);
     }
 
 }

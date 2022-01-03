@@ -1,5 +1,6 @@
 package com.CS434Project.Controller;
 
+import com.CS434Project.Model.Question.QuestionType;
 import com.CS434Project.Model.Request.CreateMultiChoiceQuestionRequest;
 import com.CS434Project.Model.Request.CreateTrueFalseQuestion;
 import com.CS434Project.Model.Request.CreateWrittenQuestion;
@@ -16,17 +17,17 @@ public class QuestionController {
 
     @PostMapping("/multichoice")
     public void createMultiChoiceQuestion(@RequestBody CreateMultiChoiceQuestionRequest question){
-        questionService.createMultiChoiceQuestion(question);
+        questionService.createMultiChoiceQuestion(question, QuestionType.MULTICHOICE);
     }
 
     @PostMapping("/truefalse")
     public void createTrueFalseQuestion(@RequestBody CreateTrueFalseQuestion question){
-        questionService.createTrueFalseQuestion(question);
+        questionService.createTrueFalseQuestion(question, QuestionType.TRUEFALSE);
     }
 
     @PostMapping("/written")
     public void createWrittenQuestion(@RequestBody CreateWrittenQuestion question){
-        questionService.createWrittenQuestion(question);
+        questionService.createWrittenQuestion(question, QuestionType.WRITTEN);
     }
 
     @GetMapping("{exam-id}")

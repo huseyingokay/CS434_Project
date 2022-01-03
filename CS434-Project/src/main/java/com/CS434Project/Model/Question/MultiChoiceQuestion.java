@@ -1,10 +1,13 @@
 package com.CS434Project.Model.Question;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "T_MULTICHOICEQUESTION")
+@DiscriminatorValue("MULTICHOICE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public class MultiChoiceQuestion extends Question{
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -12,6 +15,9 @@ public class MultiChoiceQuestion extends Question{
 
     @Column(name="ANSWERINDEX")
     private int answerIndex;
+
+    @ElementCollection
+    private List<String> choices = new ArrayList<>();
 
     @Override
     public int getId() {
@@ -29,5 +35,13 @@ public class MultiChoiceQuestion extends Question{
 
     public void setAnswerIndex(int answerIndex) {
         this.answerIndex = answerIndex;
+    }
+
+    public List<String> getChoices() {
+        return choices;
+    }
+
+    public void setChoices(List<String> choices) {
+        this.choices = choices;
     }
 }

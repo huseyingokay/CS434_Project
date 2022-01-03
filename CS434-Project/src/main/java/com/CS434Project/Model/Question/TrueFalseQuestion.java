@@ -3,15 +3,15 @@ package com.CS434Project.Model.Question;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "T_TRUEFALSEQUESTION")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("TRUEFALSE")
 public class TrueFalseQuestion extends Question{
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
     @Column(name="ANSWER")
-    private boolean answer;
+    private String answer;
 
     @Override
     public int getId() {
@@ -23,11 +23,11 @@ public class TrueFalseQuestion extends Question{
         this.id = id;
     }
 
-    public boolean isAnswer() {
+    public String isAnswer() {
         return answer;
     }
 
-    public void setAnswer(boolean answer) {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 }

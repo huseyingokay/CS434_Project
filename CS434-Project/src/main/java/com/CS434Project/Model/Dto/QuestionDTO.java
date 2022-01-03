@@ -1,18 +1,17 @@
-package com.CS434Project.Model.Request;
+package com.CS434Project.Model.Dto;
 
-
-public class CreateWrittenQuestion {
-    private String answer;
+public class QuestionDTO {
+    private int id;
     private String questionExplanation;
     private double questionPoint;
-    private int examId;
+    private String questionType;
 
-    public String getAnswer() {
-        return answer;
+    public int getId() {
+        return id;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getQuestionExplanation() {
@@ -31,11 +30,11 @@ public class CreateWrittenQuestion {
         this.questionPoint = questionPoint;
     }
 
-    public int getExamId() {
-        return examId;
+    public String getQuestionType() {
+        return questionType;
     }
 
-    public void setExamId(int examId) {
-        this.examId = examId;
+    public void setQuestionType(String questionType) {
+        this.questionType = questionType;
     }
 }
