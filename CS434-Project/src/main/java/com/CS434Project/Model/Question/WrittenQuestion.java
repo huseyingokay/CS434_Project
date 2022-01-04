@@ -10,9 +10,6 @@ public class WrittenQuestion extends Question{
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
-    @Column(name="ANSWER")
-    private String answer;
-
     @Override
     public int getId() {
         return id;

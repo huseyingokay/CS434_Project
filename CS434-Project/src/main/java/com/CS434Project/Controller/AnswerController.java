@@ -1,7 +1,6 @@
 package com.CS434Project.Controller;
 
 import com.CS434Project.Model.Request.AddAnswerRequest;
-import com.CS434Project.Repository.AnswerRepository;
 import com.CS434Project.Service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

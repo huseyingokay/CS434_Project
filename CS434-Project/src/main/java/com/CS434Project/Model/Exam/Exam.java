@@ -1,6 +1,8 @@
 package com.CS434Project.Model.Exam;
 
 import com.CS434Project.Model.Question.Question;
+import com.CS434Project.Model.Request.UserType;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +18,9 @@ public class Exam {
     @OneToMany(mappedBy = "exam")
     private List<Question> questions = new ArrayList<>();
 
+    private UserType userType = UserType.AllStudents;
+
+    //region Getters&Setters
     public int getId() {
         return id;
     }
@@ -35,4 +40,5 @@ public class Exam {
     public void addQuestion(Question question) {
         this.questions.add(question);
     }
+    //endregion
 }

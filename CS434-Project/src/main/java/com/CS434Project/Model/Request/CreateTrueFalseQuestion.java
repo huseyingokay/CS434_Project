@@ -6,7 +6,6 @@ public class CreateTrueFalseQuestion {
     private String answer;
     private String questionExplanation;
     private double questionPoint;
-    private QuestionType questionType;
     private int examId;
 
     public String getAnswer() {
@@ -31,14 +30,6 @@ public class CreateTrueFalseQuestion {
 
     public void setQuestionPoint(double questionPoint) {
         this.questionPoint = questionPoint;
-    }
-
-    public QuestionType getQuestionType() {
-        return questionType;
-    }
-
-    public void setQuestionType(QuestionType questionType) {
-        this.questionType = questionType;
     }
 
     public int getExamId() {

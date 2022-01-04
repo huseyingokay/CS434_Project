@@ -18,7 +18,7 @@ public class Question {
     @Column(name="EXPLANATION")
     private String questionExplanation;
 
-    @Column(name="ANSWERINDEX")
+    @Column(name="ANSWER")
     private String answer;
 
     private double questionPoint;
