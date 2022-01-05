@@ -103,9 +103,10 @@ body{
     height: 100px;
 }
 
-.createExamMainContext p {
+.createExamMainContext p,input {
     margin: 10px;
 }
+
 
 button {
     align-items: center;
