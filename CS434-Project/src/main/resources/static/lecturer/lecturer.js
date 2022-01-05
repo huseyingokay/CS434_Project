@@ -149,3 +149,7 @@ async function createExam() {
 
 }
 
+function logOut(){
+    window.location.href = "../login/login.html";
+}
+

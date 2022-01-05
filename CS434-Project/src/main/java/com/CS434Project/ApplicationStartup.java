@@ -31,20 +31,20 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
     private void seedData() {
         User lecturer1 = Lecturer.getInstance();
-        lecturer1.setUserName("amet");
-        lecturer1.setPassword("123");
+        lecturer1.setUserName("lecturer1");
+        lecturer1.setPassword("12345");
         if(lecturerRepository.findByUsername(lecturer1.getUserName()) == null)
             lecturerRepository.save((Lecturer)lecturer1);
 
         User grad1 = GradStudent.getInstance();
-        grad1.setUserName("abb");
-        grad1.setPassword("1234");
+        grad1.setUserName("grad1");
+        grad1.setPassword("0000");
         if(gradRepository.findByUsername(grad1.getUserName()) == null)
             gradRepository.save((GradStudent) grad1);
 
         User undergrad1 = UnderGradStudent.getInstance();
-        undergrad1.setUserName("bcc");
-        undergrad1.setPassword("1235");
+        undergrad1.setUserName("undergrad1");
+        undergrad1.setPassword("1111");
         if(underGradRepository.findByUsername(undergrad1.getUserName()) == null)
             underGradRepository.save((UnderGradStudent) undergrad1);
     }

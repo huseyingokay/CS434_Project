@@ -30,6 +30,8 @@ async function checkLecturer() {
     ).then(res => {
         if(res.data.valid)
             window.location.href = "../lecturer/lecturer.html";
+        else
+            alert("Your username or password is incorrect")
     }).catch(err => console.log(err))
 
     return true;
@@ -52,6 +54,8 @@ async function checkStudent(studentType) {
     ).then(res => {
         if(res.data.valid)
             window.location.href = "../student/student.html";
+        else
+            alert("Your username or password is incorrect")
     }).catch(err => console.log(err))
 
     return true;
