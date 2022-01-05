@@ -10,10 +10,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "T_EXAM")
-public class Exam {
+public class Exam implements IExam{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    private String examName;
 
     @OneToMany(mappedBy = "exam")
     private List<Question> questions = new ArrayList<>();
@@ -47,6 +49,14 @@ public class Exam {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public String getExamName() {
+        return examName;
+    }
+
+    public void setExamName(String examName) {
+        this.examName = examName;
     }
 
     //endregion

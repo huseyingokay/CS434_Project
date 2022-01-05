@@ -5,7 +5,9 @@ import com.CS434Project.Model.Dto.ExamDTO;
 import com.CS434Project.Model.Dto.NullExamDTO;
 import com.CS434Project.Model.Dto.QuestionDTO;
 import com.CS434Project.Model.Exam.Exam;
+import com.CS434Project.Model.Exam.ExamProxy;
 import com.CS434Project.Model.Question.Question;
+import com.CS434Project.Model.Request.UserType;
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
 import com.CS434Project.Repository.AnswerRepository;
@@ -13,6 +15,7 @@ import com.CS434Project.Repository.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -70,5 +73,11 @@ public class ExamService implements IExamService{
             }
         }
         return totalScore;
+    }
+
+    public List<String> getExamList(UserType userType){
+        List<String> a = new ArrayList<>();
+        //examproxiden isim döneriz filan fialn
+        return a;
     }
 }
