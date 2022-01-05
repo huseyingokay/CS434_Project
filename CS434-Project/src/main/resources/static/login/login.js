@@ -22,10 +22,6 @@ async function checkLecturer() {
         "password": lecturerPassword
     }
 
-    const headers = {
-        "Access-Control-Allow-Origin": "*"
-    }
-
     await axios.post('http://localhost:9000/login/lecturer', checkUserRequest,
     ).then(res => {
         if(res.data.valid)
@@ -44,10 +40,6 @@ async function checkStudent(studentType) {
     let checkUserRequest = {
         "username": studentUsername,
         "password": studentPassword
-    }
-
-    const headers = {
-        "Access-Control-Allow-Origin": "*"
     }
 
     await axios.post('http://localhost:9000/login/' + studentType, checkUserRequest,

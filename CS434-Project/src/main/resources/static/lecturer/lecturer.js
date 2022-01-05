@@ -5,7 +5,9 @@ let questionList = []
 function onClickCreateExam(){
     document.getElementById('createExamSection').style.display = 'block';
     document.getElementById('editExamSection').style.display = 'none';
-    createExam();
+    document.getElementById('onClickMultiChoice').style.display = 'none';
+    document.getElementById('onClickTrueFalse').style.display = 'none';
+    document.getElementById('onClickWritten').style.display = 'none';
 }
 
 function onClickEditExam(){
@@ -41,6 +43,7 @@ function saveWrittenQuestion(questionId){
         "questionPoint": questionPoint,
         "examId": examId
     }
+    questionList.push(request)
     axios.post('http://localhost:9000/question/written', request)
 
 }
@@ -141,10 +144,25 @@ function saveMultiChoiceQuestion(questionId){
 }
 
 async function createExam() {
-
-    await axios.post('http://localhost:9000/exam/'
+    let examName = document.getElementById('examName').value.toString();
+    console.log(examName)
+    let request = {
+        "examName": examName
+    }
+    await axios.post('http://localhost:9000/exam/',{ headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, examName}
     ).then(res => {
         examId = res.data.examId
+        document.getElementById('onClickWritten').style.display = 'block';
+        document.getElementById('onClickWritten').style.display = 'block';
+        document.getElementById('onClickMultiChoice').style.display = 'block';
+        document.getElementById('onClickTrueFalse').style.display = 'block';
+        document.getElementById('createExam').style.display = 'none';
+        document.getElementById('examName').style.display = 'none';
+        document.getElementById('examNameHeader').style.display = 'none';
+
     }).catch(err => console.log(err))
 
 }

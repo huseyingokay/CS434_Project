@@ -4,7 +4,7 @@ import com.CS434Project.Model.User;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public enum UserType {
-    Admin("ADMIN"), GradStudent("GRADSTUDENT"), UnderGradStudent("UNDERGRADSTUDENT"), AllStudents("ALLSTUDENTS") ;
+    Admin("admin"), GradStudent("grad"), UnderGradStudent("undergrad"), AllStudents("all") ;
     private final String text;
 
     UserType(final String text) {

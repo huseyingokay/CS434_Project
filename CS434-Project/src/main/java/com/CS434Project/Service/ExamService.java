@@ -6,6 +6,7 @@ import com.CS434Project.Model.Dto.NullExamDTO;
 import com.CS434Project.Model.Dto.QuestionDTO;
 import com.CS434Project.Model.Exam.Exam;
 import com.CS434Project.Model.Question.Question;
+import com.CS434Project.Model.Request.CreateExamRequest;
 import com.CS434Project.Model.Request.UserType;
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
@@ -25,8 +26,9 @@ public class ExamService implements IExamService{
     @Autowired
     AnswerRepository answerRepository;
 
-    public CreateExamResponse createExam(){
+    public CreateExamResponse createExam(CreateExamRequest request){
         Exam exam = new Exam();
+        exam.setExamName(request.getExamName());
         examRepository.save(exam);
 
         CreateExamResponse response = new CreateExamResponse();
@@ -74,9 +76,10 @@ public class ExamService implements IExamService{
         return totalScore;
     }
 
-    public List<String> getExamList(UserType userType){
-        List<String> a = new ArrayList<>();
-        //examproxiden isim döneriz filan fialn
-        return a;
+    public List<String> getExamList(String userType){
+        List<String> examList = new ArrayList<>();
+        //examList = examRepository.findExamNameByUserType(userType);
+        examList.addAll(examRepository.findExamNameByUserType(UserType.AllStudents));
+        return examList;
     }
 }

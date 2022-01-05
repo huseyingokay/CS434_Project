@@ -4,11 +4,13 @@ import com.CS434Project.Model.Exam.Exam;
 import com.CS434Project.Model.Request.UserType;
 import com.CS434Project.Model.Student.GradStudent;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface ExamRepository extends JpaRepository<Exam, Integer> {
-    List<Exam> findExamByUserType(UserType userType);
+    @Query("select e.examName from Exam e where e.userType=?1")
+    List<String> findExamNameByUserType(UserType userType);
 }

@@ -35,9 +35,12 @@
         <section id="createExamSection" style="display: none" data-letter="a">
             <div id="createExamWrapper" class="createExamWrapper">
                 <div class="createExamSideBar">
-                    <button onclick="onClickMultiChoice()">Add MultiChoice Question</button>
-                    <button onclick="onClickTrueFalse()">Add TrueFalse Question</button>
-                    <button onclick="onClickWritten()">Add Written Question</button>
+                    <p id="examNameHeader"> Please enter the name of exam: </p>
+                    <input id="examName" name="examName" type="text"/>
+                    <button id="createExam" onclick="createExam()">Create Exam</button>
+                    <button id="onClickMultiChoice" onclick="onClickMultiChoice()">Add MultiChoice Question</button>
+                    <button id="onClickTrueFalse" onclick="onClickTrueFalse()">Add TrueFalse Question</button>
+                    <button id="onClickWritten" onclick="onClickWritten()">Add Written Question</button>
                 </div>
                 <div id="createExamMainContext" class="createExamMainContext">
 
