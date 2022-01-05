@@ -2,16 +2,18 @@ package com.CS434Project.Controller;
 
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
-import com.CS434Project.Service.ExamService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.CS434Project.Service.IExamService;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://localhost:63342")
 @RestController
 @RequestMapping("/exam")
 public class ExamController {
-    @Autowired
-    ExamService examService;
+    private IExamService examService;
+
+    public ExamController(IExamService examService){
+        this.examService = examService;
+    }
 
     @PostMapping
     public CreateExamResponse createExam(){

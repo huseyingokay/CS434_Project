@@ -4,16 +4,18 @@ import com.CS434Project.Model.Question.QuestionType;
 import com.CS434Project.Model.Request.CreateMultiChoiceQuestionRequest;
 import com.CS434Project.Model.Request.CreateTrueFalseQuestion;
 import com.CS434Project.Model.Request.CreateWrittenQuestion;
-import com.CS434Project.Service.QuestionService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.CS434Project.Service.IQuestionService;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://localhost:63342")
 @RestController
 @RequestMapping("/question")
 public class QuestionController {
-    @Autowired
-    QuestionService questionService;
+    private IQuestionService questionService;
+
+    public QuestionController(IQuestionService questionService){
+        this.questionService = questionService;
+    }
 
     @PostMapping("/multichoice")
     public void createMultiChoiceQuestion(@RequestBody CreateMultiChoiceQuestionRequest question){

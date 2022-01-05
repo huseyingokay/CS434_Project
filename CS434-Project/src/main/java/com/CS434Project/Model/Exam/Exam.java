@@ -40,5 +40,14 @@ public class Exam {
     public void addQuestion(Question question) {
         this.questions.add(question);
     }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
     //endregion
 }

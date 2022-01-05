@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Cs434ProjectApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void createLecturerAndExam() {
+
 	}
 
 }

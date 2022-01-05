@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class QuestionService {
+public class QuestionService implements IQuestionService{
     @Autowired
     QuestionRepository<WrittenQuestion> writtenQuestionQuestionRepository;
 

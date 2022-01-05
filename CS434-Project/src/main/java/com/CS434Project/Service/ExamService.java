@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ExamService {
+public class ExamService implements IExamService{
     @Autowired
     ExamRepository examRepository;
 
