@@ -2,6 +2,7 @@ package com.CS434Project.Controller;
 
 import com.CS434Project.Model.Request.CreateExamRequest;
 import com.CS434Project.Model.Request.UserType;
+import com.CS434Project.Model.Response.GetExamListResponse;
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
 import com.CS434Project.Service.IExamService;
@@ -35,7 +36,7 @@ public class ExamController {
     }
 
     @GetMapping("/all/{usertype}")
-    public List<String> getExamList(@PathVariable("usertype") String userType){
+    public GetExamListResponse getExamList(@PathVariable("usertype") String userType){
         return examService.getExamList(userType);
     }
 }

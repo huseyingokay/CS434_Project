@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ExamRepository extends JpaRepository<Exam, Integer> {
-    @Query("select e.examName from Exam e where e.userType=?1")
-    List<String> findExamNameByUserType(UserType userType);
+    @Query("select e from Exam e where e.userType=?1")
+    List<Exam> findExamNameByUserType(UserType userType);
 }
