@@ -2,6 +2,7 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="student.css" >
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="student.js"></script>
 </head>
 
@@ -9,19 +10,19 @@
     <nav class="sidebar">
         <ul class="nav__list">
             <li class="nav__item">
-                <a href="" class="nav__link">
+                <a onclick="onClickGetExams()" class="nav__link">
                     <div class="nav__thumb color1" data-letter="a"></div>
                     <p class="nav__label">My Exams</p>
                 </a>
             </li>
             <li class="nav__item">
-                <a href="" class="nav__link">
+                <a onclick="onClickGetGrades()" class="nav__link">
                     <div class="nav__thumb color2" data-letter="p"></div>
                     <p class="nav__label">Grades</p>
                 </a>
             </li>
-            <li class="nav__item">
-                <a href="" class="nav__link">
+            <li onclick="logOut()" class="nav__item">
+                <a class="nav__link">
                     <div class="nav__thumb color3" data-letter="q"></div>
                     <p class="nav__label">Log out</p>
                 </a>

@@ -5,7 +5,6 @@ import com.CS434Project.Model.Dto.ExamDTO;
 import com.CS434Project.Model.Dto.NullExamDTO;
 import com.CS434Project.Model.Dto.QuestionDTO;
 import com.CS434Project.Model.Exam.Exam;
-import com.CS434Project.Model.Exam.ExamProxy;
 import com.CS434Project.Model.Question.Question;
 import com.CS434Project.Model.Request.UserType;
 import com.CS434Project.Model.Response.GetExamResponse;

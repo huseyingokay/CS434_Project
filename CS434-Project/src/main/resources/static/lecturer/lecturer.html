@@ -2,14 +2,15 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="lecturer.css" >
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="lecturer.js"></script>
 </head>
 
 <div class="wrapper">
     <nav class="sidebar">
         <ul class="nav__list">
-            <li class="nav__item">
-                <a onclick="onClickCreateExam()" class="nav__link">
+            <li onclick="onClickCreateExam()" class="nav__item">
+                <a class="nav__link">
                     <div class="nav__thumb color1" data-letter="a"></div>
                     <p class="nav__label">Create Exam</p>
                 </a>
@@ -37,7 +38,6 @@
                     <button onclick="onClickMultiChoice()">Add MultiChoice Question</button>
                     <button onclick="onClickTrueFalse()">Add TrueFalse Question</button>
                     <button onclick="onClickWritten()">Add Written Question</button>
-                    <button class="submitButton" onclick="submitExam()">Submit Exam</button>
                 </div>
                 <div id="createExamMainContext" class="createExamMainContext">
 
@@ -46,8 +46,7 @@
         </section>
         <section id="editExamSection" style="display: none">
             <article class="section__wrapper">
-                <h1 class="section__title">Products</h1>
-                <p>Use your 'left' and 'right' arrow keys to navigate.<br> Quos vel omnis quibusdam at inventore atque assumenda dignissimos ipsa magni perferendis, minima neque saepe reprehenderit quisquam numquam voluptas quo placeat quaerat!</p>
+                <h1 class="section__title">Edit Exams</h1>
             </article>
         </section>
     </div>
