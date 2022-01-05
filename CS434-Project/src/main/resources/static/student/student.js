@@ -25,12 +25,46 @@ function getStudentExams(){
             document.getElementById("getExamsSectionWrapper").innerHTML = examItems;
         }
     })
-
-
-
-
 }
 
+function startExam(examId){
+    let questions;
+    let questionItems = '';
+    axios.get('http://localhost:9000/exam/'+examId).then(res => {
+        questions = res.data.examDTO.questions
+        if(questions == null)
+            alert("Lecturer hasn't prepared the exam!")
+        else {
+            console.log(questions)
+            for(question of questions){
+                if(question.questionType === "WRITTEN"){
+                    questionItems += '<div class="question" id=written' + question.id + ' style="display: inline-grid">'
+                    questionItems += '<p> Question point:' + question.id+ '</p>'
+                    questionItems += '<p>'+question.questionExplanation+'</p>'
+                    questionItems += '<p>Please add your answer for this question: </p>'
+                    questionItems += '<textarea id=questionAnswer' + question.id + '> </textarea>'
+                    questionItems += "<button onclick=\"saveWrittenQuestion(" + question.id +","+examId+ ")\" > Save Answer </button>"
+                    questionItems += '</div>'
+                }
+                document.getElementById("getExamsSectionWrapper").innerHTML = questionItems;
+            }
+        }
+    })
+}
+
+function saveWrittenQuestion(questionId,examId){
+    let studentId = localStorage.getItem("userId");
+    let answer = document.getElementById("questionAnswer"+questionId).value;
+
+    let request = {
+        "studentId": studentId,
+        "questionId": questionId,
+        "examId": examId,
+        "answer": answer
+    }
+
+    axios.post('http://localhost:9000/answer/', request)
+}
 
 function logOut(){
     window.location.href = "../login/login.html";

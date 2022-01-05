@@ -44,8 +44,10 @@ async function checkStudent(studentType) {
 
     await axios.post('http://localhost:9000/login/' + studentType, checkUserRequest,
     ).then(res => {
-        if(res.data.valid)
+        if(res.data.valid){
+            localStorage.setItem("userId",res.data.userId);
             window.location.href = "../student/student.html";
+        }
         else
             alert("Your username or password is incorrect")
     }).catch(err => console.log(err))

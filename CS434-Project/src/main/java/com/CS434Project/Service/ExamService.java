@@ -47,15 +47,17 @@ public class ExamService implements IExamService{
             ExamDTO examDTO = new ExamDTO();
             examDTO.setId(foundExam.getId());
 
-            foundExam.getQuestions().forEach((question -> {
-                QuestionDTO questionDTO = new QuestionDTO();
-                questionDTO.setId(question.getId());
-                questionDTO.setQuestionPoint(question.getQuestionPoint());
-                questionDTO.setQuestionExplanation(question.getQuestionExplanation());
-                questionDTO.setQuestionType(question.getQuestionType());
-                examDTO.addQuestion(questionDTO);
-            }));
-            response.setExamDTO(examDTO);
+            if(!foundExam.getQuestions().isEmpty()) {
+                foundExam.getQuestions().forEach((question -> {
+                    QuestionDTO questionDTO = new QuestionDTO();
+                    questionDTO.setId(question.getId());
+                    questionDTO.setQuestionPoint(question.getQuestionPoint());
+                    questionDTO.setQuestionExplanation(question.getQuestionExplanation());
+                    questionDTO.setQuestionType(question.getQuestionType());
+                    examDTO.addQuestion(questionDTO);
+                }));
+                response.setExamDTO(examDTO);
+            }
         }
         return response;
     }

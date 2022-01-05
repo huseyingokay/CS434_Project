@@ -30,6 +30,7 @@ public class LoginService implements ILoginService{
             User user = (Lecturer)lecturerRepository.findByUsername(request.getUsername());
             response.setValid(userValidate(user, request));
             response.setMessage("ok");
+            response.setUserId(user.getId());
             return response;
         }
         catch(Exception e){
@@ -44,6 +45,7 @@ public class LoginService implements ILoginService{
             User user = (GradStudent)gradRepository.findByUsername(request.getUsername());
             response.setValid(userValidate(user, request));
             response.setMessage("ok");
+            response.setUserId(user.getId());
             return response;
         }
         catch(Exception e){
@@ -57,6 +59,7 @@ public class LoginService implements ILoginService{
             User user = (UnderGradStudent)underGradRepository.findByUsername(request.getUsername());
             response.setValid(userValidate(user, request));
             response.setMessage("ok");
+            response.setUserId(user.getId());
             return response;
         }
         catch(Exception e){
