@@ -59,9 +59,9 @@ function onClickTrueFalse(){
     question += '<textarea id=questionExplanation' + currentId + '> </textarea>'
     question += '<p>Please add your answer for this question: </p>'
     question += '<input type="radio" name="radio" id=questionTrue' + currentId + ' value="True">'
-    question += '<label htmlFor="html">True</label><br>'
+    question += '<label>True</label><br>'
     question += '<input type="radio" name="radio" id=questionFalse' + currentId+' value="False">'
-    question += '<label htmlFor="css">False</label><br>'
+    question += '<label>False</label><br>'
     question += "<button onclick=\"saveTrueFalseQuestion(" + currentId + ")\" > Save Question </button>"
     question += '</div>'
     questionId += 1;
@@ -101,13 +101,13 @@ function onClickMultiChoice() {
     question += '<textarea id=questionExplanation' + currentId + '> </textarea>'
     question += '<p>Please add your answer for this question: </p>'
     question += '<input type="radio" name="radio" id=choiceA' + currentId + ' >'
-    question += '<textarea style="height: 50px" class="multiChoices" htmlFor="html"></textarea><br>'
+    question += '<textarea style="height: 50px" class="multiChoices" id=explanationChoiceA' + currentId + '></textarea><br>'
     question += '<input type="radio" name="radio" id=choiceB' + currentId+ ' >'
-    question += '<textarea style="height: 50px" class="multiChoices" htmlFor="css"></textarea><br>'
+    question += '<textarea style="height: 50px" class="multiChoices" id=explanationChoiceB' + currentId + '></textarea><br>'
     question += '<input type="radio" name="radio" id=choiceC' + currentId+' >'
-    question += '<textarea style="height: 50px" class="multiChoices" htmlFor="css"></textarea><br>'
+    question += '<textarea style="height: 50px" class="multiChoices" id=explanationChoiceC' + currentId + '></textarea><br>'
     question += '<input type="radio" name="radio" id=choiceD' + currentId+' >'
-    question += '<textarea style="height: 50px" class="multiChoices" htmlFor="css"></textarea><br>'
+    question += '<textarea style="height: 50px" class="multiChoices" id=explanationChoiceD' + currentId + '></textarea><br>'
     question += "<button onclick=\"saveMultiChoiceQuestion(" + currentId + ")\" > Save Question </button>"
     question += '</div>'
     questionId += 1;
@@ -138,6 +138,7 @@ function saveMultiChoiceQuestion(questionId){
         "answer": questionAnswer,
         "questionExplanation": questionExplanation,
         "questionPoint": questionPoint,
+        "choices": [document.getElementById("explanationChoiceA"+questionId).value, document.getElementById("explanationChoiceB"+questionId).value, document.getElementById("explanationChoiceC"+questionId).value, document.getElementById("explanationChoiceD"+questionId).value],
         "examId": examId
     }
     axios.post('http://localhost:9000/question/multichoice', request)

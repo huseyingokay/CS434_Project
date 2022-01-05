@@ -1,9 +1,5 @@
 package com.CS434Project.Model.Request;
 
-import com.CS434Project.Model.Exam.Exam;
-import com.CS434Project.Model.Question.QuestionType;
-
-import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.List;
 
