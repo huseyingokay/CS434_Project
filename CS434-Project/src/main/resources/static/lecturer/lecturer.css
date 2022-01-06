@@ -55,6 +55,12 @@ body{
     color: #fff;
 }
 
+.nav__label{
+    font-family: "Times New Roman", Times, serif;
+    color: #acffe9;
+    font-size: 25px;
+}
+
 
 .wrapper .main_content{
     width: 100%;
