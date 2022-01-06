@@ -86,7 +86,6 @@ function startExam(examId){
 
 function saveWrittenQuestion(questionId,examId){
     let answer = document.getElementById("questionAnswer"+questionId).value;
-
     let request = {
         "studentId": studentId,
         "questionId": questionId,
@@ -95,6 +94,7 @@ function saveWrittenQuestion(questionId,examId){
     }
 
     axios.post('http://localhost:9000/answer/', request)
+    alert("Question is answered")
 }
 
 function saveMultiChoiceQuestion(questionId,examId){
@@ -120,6 +120,7 @@ function saveMultiChoiceQuestion(questionId,examId){
         "answer": answer
     }
     axios.post('http://localhost:9000/answer/', request)
+    alert("Question is answered")
 }
 
 function saveTrueFalseQuestion(questionId, examId){
@@ -138,6 +139,7 @@ function saveTrueFalseQuestion(questionId, examId){
         "answer": answer
     }
     axios.post('http://localhost:9000/answer/', request)
+    alert("Question is answered")
 }
 
 function GetGrades(){

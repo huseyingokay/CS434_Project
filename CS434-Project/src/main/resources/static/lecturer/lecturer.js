@@ -45,6 +45,7 @@ function saveWrittenQuestion(questionId){
     }
     questionList.push(request)
     axios.post('http://localhost:9000/question/written', request)
+    alert("Question is saved")
 
 }
 
@@ -87,6 +88,7 @@ function saveTrueFalseQuestion(questionId){
         "examId": examId
     }
     axios.post('http://localhost:9000/question/truefalse', request)
+    alert("Question is saved")
 
 }
 
@@ -122,9 +124,8 @@ function saveMultiChoiceQuestion(questionId){
 
     let questionExplanation = document.getElementById("questionExplanation"+questionId).value;
     let questionAnswer;
-    if (document.getElementById(a).checked) {
+    if (document.getElementById(a).checked)
         questionAnswer = "A"
-    }
     else if(document.getElementById(b).checked)
         questionAnswer = "B"
     else if(document.getElementById(c).checked)
@@ -142,6 +143,7 @@ function saveMultiChoiceQuestion(questionId){
         "examId": examId
     }
     axios.post('http://localhost:9000/question/multichoice', request)
+    alert("Question is saved")
 }
 
 async function createExam() {

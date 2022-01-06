@@ -10,7 +10,7 @@ body{
 
 .background{
     width: 430px;
-    height: 520px;
+    height: 600px;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
@@ -18,7 +18,7 @@ body{
 }
 
 .mainDiv{
-    height: 520px;
+    height: 600px;
     width: 400px;
     background-color: rgba(161, 49, 49, 0.13);
     position: absolute;

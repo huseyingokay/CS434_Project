@@ -13,10 +13,16 @@ public class AnswerService implements IAnswerService{
 
     public void addAnswer(AddAnswerRequest request) {
         Answer answer = new Answer();
-        answer.setAnswer(request.getAnswer());
-        answer.setQuestionId(request.getQuestionId());
-        answer.setStudentId(request.getStudentId());
-        answer.setExamId(request.getExamId());
+        if(answerRepository.findByStudentIdAndExamIdAndQuestionId(request.getStudentId(), request.getExamId(), request.getQuestionId())!= null){
+            answer = answerRepository.findByStudentIdAndExamIdAndQuestionId(request.getStudentId(), request.getExamId(), request.getQuestionId());
+            answer.setAnswer(request.getAnswer());
+        }
+        else {
+            answer.setAnswer(request.getAnswer());
+            answer.setQuestionId(request.getQuestionId());
+            answer.setStudentId(request.getStudentId());
+            answer.setExamId(request.getExamId());
+        }
         answerRepository.save(answer);
     }
 }
