@@ -6,12 +6,14 @@ import com.CS434Project.Model.Dto.ExamDTO;
 import com.CS434Project.Model.Dto.NullExamDTO;
 import com.CS434Project.Model.Dto.QuestionDTO;
 import com.CS434Project.Model.Exam.Exam;
+import com.CS434Project.Model.Question.MultiChoiceQuestion;
 import com.CS434Project.Model.Question.Question;
 import com.CS434Project.Model.Request.CreateExamRequest;
 import com.CS434Project.Model.Request.UserType;
 import com.CS434Project.Model.Response.GetExamListResponse;
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
+import com.CS434Project.Model.Response.GetExamResultResponse;
 import com.CS434Project.Repository.AnswerRepository;
 import com.CS434Project.Repository.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +56,11 @@ public class ExamService implements IExamService{
                     questionDTO.setQuestionPoint(question.getQuestionPoint());
                     questionDTO.setQuestionExplanation(question.getQuestionExplanation());
                     questionDTO.setQuestionType(question.getQuestionType());
+                    if(question.getQuestionType().equals("MULTICHOICE")){
+                        MultiChoiceQuestion multiChoiceQuestion = (MultiChoiceQuestion) question;
+                        questionDTO.setChoices(multiChoiceQuestion.getChoices());
+                    }
+
                     examDTO.addQuestion(questionDTO);
                 }));
                 response.setExamDTO(examDTO);
@@ -62,9 +69,10 @@ public class ExamService implements IExamService{
         return response;
     }
 
-    public double getExamResult(int examId, int studentId) {
+    public GetExamResultResponse getExamResult(int examId, int studentId) {
         Exam requestedExam = examRepository.findById(examId).get();
         List<Answer> answers = answerRepository.findByStudentIdAndExamId(studentId,examId);
+        GetExamResultResponse response = new GetExamResultResponse();
         double totalScore = 0.0;
 
         for(int i=0; i<requestedExam.getQuestions().size(); i++){
@@ -77,7 +85,8 @@ public class ExamService implements IExamService{
                 totalScore += requestedExam.getQuestions().get(i).getQuestionPoint();
             }
         }
-        return totalScore;
+        response.setResult(totalScore);
+        return response;
     }
 
     public GetExamListResponse getExamList(String userType){

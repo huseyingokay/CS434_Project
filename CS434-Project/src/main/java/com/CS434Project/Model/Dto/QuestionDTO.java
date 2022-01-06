@@ -1,10 +1,14 @@
 package com.CS434Project.Model.Dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QuestionDTO {
     private int id;
     private String questionExplanation;
     private double questionPoint;
     private String questionType;
+    private List<String> choices = null;
 
     public int getId() {
         return id;
@@ -36,5 +40,14 @@ public class QuestionDTO {
 
     public void setQuestionType(String questionType) {
         this.questionType = questionType;
+    }
+
+    public List<String> getChoices() {
+        return choices;
+    }
+
+    public void setChoices(List<String> choices) {
+        this.choices = new ArrayList<>();
+        this.choices = choices;
     }
 }

@@ -78,3 +78,19 @@ body{
     margin-bottom: 20px;
 }
 
+.main_content .getExamsSection.getExamsSectionWrapper {
+    width: 100%;
+    margin-left: 230px;
+    display: inline-grid;
+}
+
+.getExamsSectionWrapper textarea {
+    margin: 10px;
+    width: 40%;
+    height: 100px;
+}
+
+.getExamsSectionWrapper p,input {
+    margin: 10px;
+}
+
