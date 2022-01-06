@@ -1,7 +1,6 @@
 package com.CS434Project.Controller;
 
 import com.CS434Project.Model.Request.CreateExamRequest;
-import com.CS434Project.Model.Request.UserType;
 import com.CS434Project.Model.Response.GetExamListResponse;
 import com.CS434Project.Model.Response.GetExamResponse;
 import com.CS434Project.Model.Response.CreateExamResponse;
@@ -9,13 +8,12 @@ import com.CS434Project.Model.Response.GetExamResultResponse;
 import com.CS434Project.Service.IExamService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @CrossOrigin("http://localhost:63342")
 @RestController
 @RequestMapping("/exam")
 public class ExamController {
-    private IExamService examService;
+    private final IExamService examService;
 
     public ExamController(IExamService examService){
         this.examService = examService;

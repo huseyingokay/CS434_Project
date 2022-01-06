@@ -45,7 +45,6 @@ public class QuestionService implements IQuestionService{
     public void createWrittenQuestion(CreateWrittenQuestion request, QuestionType questionType) {
         Optional<Exam> exam = examRepository.findById(request.getExamId());
         WrittenQuestion question = (WrittenQuestion) questionFactory.getQuestion(questionType);
-        System.out.println("ANSWEEEEEEEEEEER"+request.getAnswer());
         setQuestionCommonAttributes(question, exam.get(), request.getAnswer(), request.getQuestionExplanation(), request.getQuestionPoint());
         writtenQuestionQuestionRepository.save(question);
     }
