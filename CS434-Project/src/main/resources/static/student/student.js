@@ -167,7 +167,11 @@ function getGrade(examId) {
     axios.get('http://localhost:9000/exam/' + examId +'/results/' + studentId).then(res => {
             result = res.data.result
             document.getElementById("result"+examId).innerHTML = result;
-    })
+    }).catch((error) => {
+        if( error.response ){
+            alert("You haven't submit the exam!")
+        }
+    });
 
 }
 
