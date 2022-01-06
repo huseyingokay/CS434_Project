@@ -32,19 +32,14 @@
                     <p id="examNameHeader" style="font-size: 20px"> Please enter the name of exam: </p>
                     <input id="examName" name="examName" type="text"/>
                     <button id="createExam" onclick="createExam()">Create Exam</button>
-                    <button id="onClickMultiChoice" onclick="onClickMultiChoice()">Add MultiChoice Question</button>
-                    <button id="onClickTrueFalse" onclick="onClickTrueFalse()">Add TrueFalse Question</button>
-                    <button id="onClickWritten" onclick="onClickWritten()">Add Written Question</button>
+                    <button id="onClickMultiChoice" style="display: none" onclick="onClickMultiChoice()">Add MultiChoice Question</button>
+                    <button id="onClickTrueFalse" style="display: none" onclick="onClickTrueFalse()">Add TrueFalse Question</button>
+                    <button id="onClickWritten" style="display: none" onclick="onClickWritten()">Add Written Question</button>
                 </div>
                 <div id="createExamMainContext" class="createExamMainContext">
 
                 </div>
             </div>
-        </section>
-        <section id="editExamSection" style="display: none">
-            <article class="section__wrapper">
-                <h1 class="section__title">Edit Exams</h1>
-            </article>
         </section>
     </div>
 </div>

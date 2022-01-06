@@ -4,15 +4,9 @@ let questionList = []
 
 function onClickCreateExam(){
     document.getElementById('createExamSection').style.display = 'block';
-    document.getElementById('editExamSection').style.display = 'none';
     document.getElementById('onClickMultiChoice').style.display = 'none';
     document.getElementById('onClickTrueFalse').style.display = 'none';
     document.getElementById('onClickWritten').style.display = 'none';
-}
-
-function onClickEditExam(){
-    document.getElementById('editExamSection').style.display = 'block';
-    document.getElementById('createExamSection').style.display = 'none';
 }
 
 function onClickWritten(){

@@ -1,7 +1,7 @@
 const studentId = localStorage.getItem("userId");
 
 function onClickGetExams(){
-    document.getElementById('getExamsSection').style.display = 'block';
+    document.getElementById('getExamsSection').style.display = 'inline-grid';
     document.getElementById('getExamScoresSection').style.display = 'none';
     getStudentExams()
 }
